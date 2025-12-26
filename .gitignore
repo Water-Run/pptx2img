@@ -1,0 +1,148 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+*.dll
+*.toc
+*.pkg
+*.pyz
+*.html  # PyInstaller 生成的 xref-*.html（如果你不想忽略所有 .html，可删除本行）
+localpycs/
+
+# ---- Byte-compiled / optimized / DLL files ----
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# ---- Virtual Environments ----
+venv/
+env/
+ENV/
+.venv/
+.virtualenv/
+pip-selfcheck.json
+poetry.lock
+Pipfile.lock
+
+# ---- Distribution / Packaging ----
+build/
+dist/
+downloads/
+sdist/
+*.egg-info/
+.eggs/
+wheelhouse/
+*.whl
+*.tar.gz
+*.zip
+
+# ---- Logs and Debug ----
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.orig
+*.rej
+*.diff
+*.patch
+
+# ---- Coverage / Test / CI ----
+.coverage
+.coverage.*
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.tox/
+.pytest_cache/
+test-results/
+junit-*.xml
+
+# ---- Jupyter Notebook ----
+.ipynb_checkpoints/
+
+# ---- IDE / 编辑器 ----
+# PyCharm / JetBrains
+.idea/
+*.iml
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dataSources/
+.idea/**/dictionaries/
+.idea/**/shelf/
+
+# VSCode
+.vscode/
+.history/
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# ---- Operating System Files ----
+# Windows
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX/
+*.localized
+
+# Linux
+*~
+.nfs*
+
+# ---- MyPy ----
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ---- Pylint ----
+pylint-report.txt
+pylint-global.txt
+
+# ---- Docker ----
+*.pid
+*.pid.lock
+
+# ---- Other Tools ----
+.env
+.env.*
+*.env
+*.env.*
+.secret
+secrets.env
+
+# ---- Custom Folders ----
+logs/
+tmp/
+output/
+data/
+datasets/
+
+# ---- Ignore SQLite or Local DBs ----
+*.sqlite
+*.sqlite3
+*.db
+*.db3
