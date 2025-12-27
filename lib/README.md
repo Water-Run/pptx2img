@@ -16,13 +16,13 @@ import pptx2img
 
 # pptx: required, the PowerPoint file to process
 # output_dir: optional, default is ./pptx2img in the same directory
-# range: optional, specifies the range of slides to convert
+# slide_range: optional, specifies the range of slides to convert
 # scale: optional, resolution scale.
 #        If not specified, it defaults to screen resolution.
 pptx2img.topng(
     pptx="your_presentation.pptx",
     output_dir="./output",
-    range=[1, 5],
+    slide_range=[1, 5],
     scale=2
 )
 

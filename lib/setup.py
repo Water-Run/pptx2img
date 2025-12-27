@@ -1,3 +1,5 @@
+# setup.py of pptx2img
+
 import os
 from setuptools import setup, find_packages
 
