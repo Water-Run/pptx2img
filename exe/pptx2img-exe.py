@@ -914,34 +914,39 @@ class Sidebar(QWidget):
         line.setFrameShape(QFrame.Shape.HLine)
         line.setStyleSheet(f"color: {BORDER_COLOR}; margin-top: 15px; margin-bottom: 15px;")
         self.layout.addWidget(line)
+        
+    def _get_resource_path(self, relative_path: str) -> str:
+        r"""
+        获取资源文件的绝对路径，兼容开发环境和打包后的exe环境
+        """
+        if getattr(sys, 'frozen', False):
+            # 打包后的exe环境，资源在 sys._MEIPASS 根目录
+            base_path: str = sys._MEIPASS
+        else:
+            # 开发环境，logo.png 在项目根目录
+            base_path: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        
+        return os.path.join(base_path, relative_path)
     
     def _load_logo(self) -> None:
         r"""
         加载Logo图片，支持高DPI显示
         """
-        logo_path: str = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)),
-            '..',
-            'logo.png'
-        )
+        logo_path: str = self._get_resource_path('logo.png')  # ← 关键改动
+        
         if os.path.exists(logo_path):
-            # 获取设备像素比
             screen = QApplication.primaryScreen()
             dpr: float = screen.devicePixelRatio() if screen else 1.0
             
-            # 目标逻辑尺寸
             logical_size: int = 80
-            # 实际需要的物理像素尺寸
             physical_size: int = int(logical_size * dpr)
             
             logo_pix: QPixmap = QPixmap(logo_path)
-            # 缩放到物理像素尺寸
             scaled_pix: QPixmap = logo_pix.scaled(
                 physical_size, physical_size,
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation
             )
-            # 设置设备像素比，告诉Qt这是高分辨率图片
             scaled_pix.setDevicePixelRatio(dpr)
             
             self.lbl_logo.setPixmap(scaled_pix)
